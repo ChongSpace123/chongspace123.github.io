@@ -26,7 +26,11 @@ a{
 /* section 1 */
 .section-1{
     padding-top: 20vh;
+    padding-left: 18vh;
     text-align: center;
+    height: 140px; 
+    width: 300px;
+    position: fixed;
 }
 
 .section-1 p{
@@ -47,7 +51,8 @@ a{
 /* section 2 */
 .section-2{
     padding-top: 10vh;
-    width: 70%;
+    padding-left: 70vh;
+    width: 100%;
 }
 
 .section-2 h2{
