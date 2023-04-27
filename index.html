@@ -13,15 +13,19 @@
         <div class="section-1">
                 <img src="./img/cat.jpeg" width="250"/></i>
             <h2>Chong He</h2>
-            <p>Incoming CS PhD at SFU</p>
+            <p>Not My Cat</p>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="https://www.linkedin.com/in/%E7%BF%80-%E4%BD%95-172a0519a/"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/ChongChongbst"><i class="fab fa-github"></i></a>
         </div>
         <div class="section-2">
             <h2>About</h2>
-            <p>I am currently a MS student at University of California, San Diego majoring in mechanical and aerospace engineering.<br>
-            I received my B.Eng degree at Tongji University, China majoring in mechanical design, manufacturing and its automation. </p>
+            <p>
+            I am currently a MS student at University of California, San Diego majoring in mechanical and aerospace engineering.<br>
+            I received my B.Eng degree at Tongji University, China majoring in mechanical design, manufacturing and its automation.<br>
+    
+
+            </p>
 
             <h2>Skills</h2>
             <p>Good Matlab and Python coding skills. Can do C/C++. Know a little about Java.<br>
@@ -29,15 +33,55 @@
             <h2>Publication</h2>
             <p>[1]Xiaojie Ai, Anzhu Gao, Member, IEEE, Zecai Lin, <strong>Chong He,</strong> Weidong Chen, Member, IEEE <k href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9385942&casa_token=uvvEy3mAeaoAAAAA:Uj66kU9IecP0gXdhLtB3lHEDgfpzEUeqPUbyCYQJelyMtMsy0BVrJyOG6KT974GBRW4rCjnbgg&tag=1">“A Multi-Contact-Aided Continuum Manipulator With Anisotropic Shapes”</k>, IEEE Robotics and Automation Letters, July 2021</p>
 
-            <h2>Projects</h2>
-            <g href="#">Project 1</g>
-            <g href="#">Project 2</g>
-            <g href="#">Project 3</g>
-            <g href="#">Project 4</g>
-            <g href="#">Project 5</g>
+            <h2>Research Experience</h2>
+
+            <g href="#" class="collapsible">Refine HJ Decomposition With Admissible Control</g>
+            <div class="content">
+                <p>Lorem ipsum...</p>
+            </div>
+
+            <g href="#" class="collapsible">3D Catheter Reconstruction from Image Sequence</g>
+            <div class="content">
+                <p>
+                How to find the actual 3D shape of a catheter with a low-resolution endoscopic camera?</br>
+                In this project, a machine-learning based method is used.
+                The shape of the catheter is assumed as a Bezier Curve with 3 control points.
+                With the image sequence, the 3D shape information can be optimized to the true value.
+                </p>
+                <img src="./img/imagesequence.gif" width=100%>
+             
+            </div>
+
+            <g href="#" class="collapsible">Spline Reconstruction with 2 Cameras</g>
+            <div class="content">
+                <p>From this project, </p>
+            </div>
+
+            <g href="#" class="collapsible">Teleoperation for Catheter Control</g>
+            <div class="content">
+                <p></p>
+            </div>
+
             <h2>Contact</h2>
-            <p>c5he@ucsd.edu</p>
+            <p>candice123hc@gmail.com</p>
         </div>
     </div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
 </body>
 </html>
