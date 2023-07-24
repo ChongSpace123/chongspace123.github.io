@@ -11,29 +11,41 @@
 <body>
     <div class="grid-2">
         <div class="section-1">
-                <img src="./img/cat.jpeg" width="250"/></i>
-            <h2>Chong He</h2>
-            <p>Not My Cat</p>
+                <img src="./img/cat.jpeg" width="200"/></i>
+            <h2>何翀 (Chong He)</h2>
             <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/%E7%BF%80-%E4%BD%95-172a0519a/"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/ChongChongbst"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/%E7%BF%80-%E4%BD%95-172a0519a/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ChongChongbst" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+
+            <div id="sidebar" class="section-3">
+              <h2><b>Quick Links</b></h2>
+             
+                <a href="#about">About</a><br>
+                <a href="#skills">skills</a><br>
+                <a href="#publication">Publications</a><br>
+                <a href="#experience">Research Experience</a><br>
+                <a href="#contact">Contact Information</a><br>
+    
+             </div>
+
         </div>
         <div class="section-2">
-            <h2>About</h2>
+            <h2 id="about">About</h2>
             <p>
-            I am currently a MS student at University of California, San Diego majoring in mechanical and aerospace engineering.<br>
+            I am a Phd Candidate majoring in Computing Science at Simon Fraser University. <br>
+            Check out our lab website: <a href="https://sfumars.com/" target="_blank" rel="noopener noreferrer">Mars Lab.</a> <br>
+            Previously, I pursued my master degree at University of California, San Diego with a major of Mechanical and Aerospace Engineering in <a href="http://sylviaherbert.com/" target="_blank" rel="noopener noreferrer">The Safe Autonomous Systems Lab</a> .<br>
             I received my B.Eng degree at Tongji University, China majoring in mechanical design, manufacturing and its automation.<br>
-    
-
+            My Research Interest lies in Reachability and Control Theory.
             </p>
 
-            <h2>Skills</h2>
+            <h2 id="skills">Skills</h2>
             <p>Good Matlab and Python coding skills. Can do C/C++. Know a little about Java.<br>
                Very familliar with AutoCAD and SolidWorks.</p>
-            <h2>Publication</h2>
-            <p>[1]Xiaojie Ai, Anzhu Gao, Member, IEEE, Zecai Lin, <strong>Chong He,</strong> Weidong Chen, Member, IEEE <k href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9385942&casa_token=uvvEy3mAeaoAAAAA:Uj66kU9IecP0gXdhLtB3lHEDgfpzEUeqPUbyCYQJelyMtMsy0BVrJyOG6KT974GBRW4rCjnbgg&tag=1">“A Multi-Contact-Aided Continuum Manipulator With Anisotropic Shapes”</k>, IEEE Robotics and Automation Letters, July 2021</p>
+            <h2 id="publication">Publication</h2>
+            <p>[1]Xiaojie Ai, Anzhu Gao, Member, IEEE, Zecai Lin, <strong>Chong He,</strong> Weidong Chen, Member, IEEE “A Multi-Contact-Aided Continuum Manipulator With Anisotropic Shapes”, IEEE Robotics and Automation Letters, July 2021</p>
 
-            <h2>Research Experience</h2>
+            <h2 id="experience">Research Experience</h2>
 
             <g href="#" class="collapsible">Refine HJ Decomposition With Admissible Control</g>
             <div class="content">
@@ -62,9 +74,11 @@
                 <p></p>
             </div>
 
-            <h2>Contact</h2>
+            <h2 id="contact">Contact</h2>
             <p>candice123hc@gmail.com</p>
         </div>
+
+
     </div>
 
 <script>
@@ -75,11 +89,11 @@ for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
+    if (!content.style.display || content.style.display === "block") {
+  content.style.display = "none";
+        } else {
+  content.style.display = "block";
+            }
   });
 }
 </script>
