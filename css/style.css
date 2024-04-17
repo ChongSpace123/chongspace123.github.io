@@ -70,7 +70,7 @@ a{
 
 /* section 2 */
 .section-2{
-    color: #fff;
+    color: #7A7C80;
     padding-top: 10vh;
     padding-left: 20vh;
     height: 50%;
@@ -90,6 +90,7 @@ a{
     padding-bottom: 10px;
     margin:0;
 }
+
 .section-2 a{
     font-size: 1.1rem;
     padding-bottom: 10px;
@@ -116,6 +117,19 @@ a{
     color: #fff;
     cursor: pointer;
 }
+
+/* .section-2 li{
+    float: left;
+  } */
+  
+.section-2  li a{
+    display: block;
+    color:  #7A7C80;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    float: left;
+  }
 
 /*.white:hover{
     position: relative;
