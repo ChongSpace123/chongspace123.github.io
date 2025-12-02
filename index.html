@@ -74,21 +74,13 @@
                 <h2 id="research">Research</h2>
                 <g class="collapsible">Leaking Corner Issue</g>
                 <div class="content">
-                    <p>
-                    By calling the issue ``leaking corner issue'', we mean that it is observed that the incorrectness happens at the corner. </br>
-                    In this work, we have the theoretical proof that it only exists in the corner. </br>
-                    Besides, a local updating procedure is proposed to recover the exact reachable set, which guarantees fast computation and correct result. </br>
-                    </p>
-                    <img src="./img/threshold/proof.png" width=42%> 
-                    <img src="./img/threshold/localprocess.png" width=57%> 
-                    <p>
-                    [1] <strong>Chong He</strong>, Mugilan Mariappan, Keval Vora, Mo Chen <a href="https://arxiv.org/pdf/2505.10020" target="_blank" style="color: #292857">"Threshold Strategy for Leaking Corner-Free Hamilton-Jacobi Reachability with Decomposed Computations"</a>, IEEE Conference on Decision and Control, 2025
-                    </p>
-                </div>
+                <!-- </div> -->
 
-                <g class="collapsible">Hamilton-Jacobi Reachability Decomposition with Admissible Control</g>
-                <div class="content">
+                <!-- <g class="collapsible">Hamilton-Jacobi Reachability Decomposition with Admissible Control</g> -->
+                <!-- <div class="content"> -->
                     <p>
+                    1. Admissible Control: 
+                    </br>
                     Hamilton-Jacobi reachability analysis is a useful tool for generating reachable sets and corresponding optimal control policies, but its use in high-dimensional systems is hindered by the "curse of dimensionality." Self-contained subsystem decomposition is a proposed solution, but it can produce conservative or incorrect results due to the "leaking corner issue." This issue arises from the inexact decomposition of the target set and inconsistencies across the computed control policies for each coupled subsystem.</br>
                     In this work, we define and resolve this issue by introducing the notion of an admissible control set that enforces consistent control actions across the coupled subsystems. Our method efficiently computes exact reachable sets and the corresponding optimal control policy for self-contained subsystems with a decomposable goal (or failure) set. We also provide conservative under-approximations for goal (or failure) sets with inexact decomposition. In this conservative case, a local update method in the full dimensional space can be applied to recover exact results. 
                     </p>
@@ -98,6 +90,18 @@
                     [2] <strong>Chong He*</strong>, Zheng Gong*, Mo Chen, Sylvia Herbert, <a href="https://ieeexplore.ieee.org/document/10365682" target="_blank" style="color: #292857">"Efficient and Guaranteed Hamilton-Jacobi Reachability via Self-Contained Subsystem Decomposition and Admissible Control Sets"</a>, IEEE Control Systems Letter, 2023
                     </p>
                     <p> This projected is coded in Matlab, and the code can be found at <a href="https://github.com/ChongChongbst/Admissible-Control-Reconstruction" target="_blank" style="color: #292857">Admissible-Control-Reconstruction</a> .</p>
+                    <p>
+                    2. <a class="label label-info" href="./projects/threshold-strategy/index.html" target="_blank" style="color: #292857"> Threshold Strategy (Check out the project website)</a>:</p>
+                    By calling the issue ``leaking corner issue'', we mean that it is observed that the incorrectness happens at the corner. </br>
+                    In this work, we have the theoretical proof that it only exists in the corner. </br>
+                    Besides, a local updating procedure is proposed to recover the exact reachable set, which guarantees fast computation and correct result. </br>
+                    </p>
+                    <img src="./img/threshold/proof.png" width=42%> 
+                    <img src="./img/threshold/localprocess.png" width=57%> 
+                    <p>
+                    [1] <strong>Chong He</strong>, Mugilan Mariappan, Keval Vora, Mo Chen <a href="https://arxiv.org/pdf/2505.10020" target="_blank" style="color: #292857">"Threshold Strategy for Leaking Corner-Free Hamilton-Jacobi Reachability with Decomposed Computations"</a>, IEEE Conference on Decision and Control, 2025
+                    </p>
+                
                 </div>
 
                 <g class="collapsible">3D Catheter Reconstruction from Image Sequence</g>

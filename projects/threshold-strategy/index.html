@@ -1,0 +1,220 @@
+<html lang="en">
+<head>
+    <title>Threshold-strategy</title>
+    <meta name="description" content="Project page for Proof of leaking corner issue only happens in the corner and a local updating method to correct the leaking corners">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>    
+</head>
+<body>
+
+
+<!--Title-->
+<div class="container" style="padding:2rem 15px 0.5rem 15px; text-align:center;"> 
+
+    <!-- Title + Conference -->
+    <div class="row" style="display:flex; justify-content:center; text-align:center;">
+        <div class="col-xs-12">
+            <h1>Threshold Strategy for Leaking Corner-Free Hamilton-Jacobi Reachability with Decomposed Computations</h1>
+            <h4>Conference on Decision and Control (CDC) 2025</h4>
+        </div>
+    </div>
+    <!-- Authors + Affiliation -->
+    <div class="row" style="display:flex; justify-content:center; text-align:center;">
+        <div class="col-xs-12 col-md-6">
+            <h4>
+                <nobr>Chong He</nobr> &emsp;
+                <nobr>Mugilan Mariappan</nobr> &emsp;
+                <nobr>Keval Vora</nobr> &emsp;
+                <nobr>Mo Chen</nobr>
+            </h4>
+  <!-- AFFILIATION: centered reliably -->
+        <p style="display:flex; justify-content:center; text-align:center;"><em>School of Computing Science, Simon Fraser University, Burnaby, BC, Canada</em></p>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!--Links-->
+<div class="container" style="text-align:center; padding:1rem">
+  <h3 style="padding-top:0.2rem; padding-bottom:2em;">
+    <div style="text-align:center;">
+      <a class="label label-info" target="_blank" href="https://arxiv.org/pdf/2505.10020">Paper</a>
+      <a class="label label-info" target="_blank" href="https://github.com/SFU-MARS/HJ_local_update">Code</a>
+      <a class="label label-info" target="_blank" href="resrc/Threshold strategy -2025CDC.pdf">Presentation</a>
+      <a class="label label-info" target="_blank" href="resrc/poster-threshold-strategy.pdf">Poster</a>
+    </div>
+  </h3>
+
+  <img src="resrc/proof.png" width=42%> 
+  <img src="resrc/localprocess.png" width=57%> 
+  <p><h5><em>The left figure illustrates the continuous change of admissible control set while 
+    the states moving towards or away from the target set.
+    The right figure shows the local updating procedure with the proved theory, "leaking corners" happen in the corner.
+  </h5></p>    
+</div>
+
+
+
+<div class="container">
+    <h3>Abstract</h3>
+    <hr/>
+    <p>
+      Hamilton-Jacobi (HJ) Reachability is widely used to compute value functions for states satisfying specific control objectives. 
+      However, it becomes intractable for highdimensional problems due to the curse of dimensionality. 
+      Dimensionality reduction approaches are essential for mitigating this challenge, 
+      whereas they could introduce the “leaking corner issue”, leading to inaccuracies in the results. 
+      In this paper, we define the “leaking corner issue” in terms of value functions,
+      propose and prove a necessary condition for its occurrence.
+      We then use these theoretical contributions to introduce a new local updating method that efficiently corrects inaccurate 
+      value functions while maintaining the computational efficiency of the dimensionality reduction approaches. 
+      We demonstrate the effectiveness of our method through numerical simulations.
+      Although we validate our method with the self-contained subsystem decomposition (SCSD), our approach is applicable
+      to other dimensionality reduction techniques that introduce the “leaking corners”.
+    </p>
+
+    <h3>Theoritical Contribution</h3>
+    <hr/>
+      <div class="row" style="text-align:center; padding:1rem">
+          <!-- <img src="resrc/.png" alt="deep_tsf.png"  class="text-center" style="width: 90%; max-width: 1100px"> -->
+          <p>We proved that "leaking corner issue" will only happen at the places
+             where the value difference between sub-value functions is smaller than certain threshold.</p>
+          <p>For detailed illustration, please refer to the paper or presentation.  </p>
+          
+      </div>
+
+
+    <h3>Local Updating Approach</h3>
+    <hr/>
+      <div class="row" style="text-align:center; padding:1rem">
+        <div class="col-sm-6">
+          <img src="resrc/local_update_algrithm.png" alt="dti.png"  class="text-center" style="width: 85%; max-width: 1100px">
+        </div>
+        <div class="col-sm-6">
+          <!-- <img src="resrc/.png" alt="deep_tsf.png"  class="text-center" style="width: 90%; max-width: 1100px"> -->
+          <p>Starting from where the values from sub-systems are equal: </p>
+          <img src="resrc/eq-1.png" alt="dti.png"  class="text-center" style="width: 30%; max-width: 500px"> .  
+          <p>Eventually, we will reach a place where the values do not need to be corrected. </p>
+          <img src="resrc/eq-2.png" alt="dti.png"  class="text-center" style="width: 20%; max-width: 500px"> .  
+            <p>In Algorithm 1, neighbor(z) returns a set of states that are
+            adjacent to the state z. Every island of the “leaking corners” will be included, 
+            and every “leaking corner” is covered using our formula. 
+            The algorithm keeps checking the neighboring states of the leaking corners detected for every time step.
+            It makes sure that all the leaking corners are covered with the updating procedure.
+          </p>        
+        </div>
+      </div>    
+    
+
+
+
+    <h3>Experiments</h3>
+    <hr/>
+      <!-- first experiment -->
+      <div class="container" style="text-align:center; padding:1rem">
+        <p style="padding-top: 1em; ">
+        2D and 6D examples demonstrate that:
+        (1) Theorem 1 locates the “leaking corners.”
+        (2) The local updating process in Algorithm 1 produces
+        results equivalent to the ground truth while maintaining
+        computational efficiency.
+        </p>
+        <p style="padding-bottom: 2em">
+        The experiment was conducted on a system with 96.0 GB
+        of memory, an AMD Ryzen 9 5950X 16-core processor
+        (32 threads), and Ubuntu 22.04.3 LTS as the operating
+        system. We use the highly parallelized <a href="https://github.com/SFU-MARS/optimized_dp">Optimized_dp</a>
+        for computation.
+        </p>
+        <pre><p><h4><em>System Dynamics: 2D Single Integrator</h4></p></pre>
+        <p style="padding-top: 1em; padding-bottom: 2em">
+        The initial value function for subsystem 1 is ϕ1(x1, 0) =
+        ℓ1(x1) = |x| − 1, and for subsystem 2, it is ϕ2(x2, 0) =
+        ℓ2(x2) = |y| − 1. The initial value function for
+        the full-dimensional system is given by V (z, 0) =
+        max{ℓ1(x1), ℓ2(x2)}
+        The grid consists of 101×101 points with each dimension
+        ranging from −4 to 4..</p>
+         
+        <img src="resrc/exp-1-result.png" alt="experiment_1.png" class="text-center" style="width: 65%; max-width: 20000px; padding-bottom: 1em">
+        <p>
+        The 2 figures illustrate the value functions. The left
+        figure displays the approximated value function, with the
+        leaking corners” L(t)—where the values deviate from the
+        ground truth—highlighted in gray. The right figure shows the
+        value function after applying our correction method, where
+        no “leaking corners” remain, demonstrating the effectiveness
+        of our method in aligning with the ground truth.</p>
+        <img src="resrc/exp-1-table-1.png" alt="experiment_1.png" class="text-center" style="width: 35%; max-width: 10000px">
+        <img src="resrc/exp-1-table-2.png" alt="experiment_1.png" class="text-center" style="width: 35%; max-width: 10000px">
+      </div>
+
+
+      <!-- second experiment -->
+      <div class="container" style="text-align:center; padding:1rem">
+        <pre><p><h4>System Dynamics: 6D Planar Quadrotor</u></h4></p></pre> 
+        <p style="padding-top: 1em; padding-bottom: 2em">
+          The system dynamics is: </p>
+          <img src="resrc/eq-3.png" alt="dti.png"  class="text-center" style="width: 20%; max-width: 500px">.  
+          <p>
+          Using the SCSD method, the dynamics could be decomposed into 2 subsystems. Subsystem 1 has the dynamics:
+          </p>
+          <img src="resrc/eq-4.png" alt="dti.png"  class="text-center" style="width: 20%; max-width: 500px">  
+          <p>
+          and subsystem 2 has the dynamics:
+          </p>
+          <img src="resrc/eq-5.png" alt="dti.png"  class="text-center" style="width: 20%; max-width: 500px"> 
+
+
+        <p><h5 style="padding-top:2em "><em>The initial value function for subsystem 1 is ϕ1(x1, 0) =
+        ℓ1(x1) = x, and for subsystem 2, it is ϕ2(x2, 0) = ℓ2(x2) =
+        y. The initial value function for the full-dimensional system
+        is given by V (z, 0) = min{ℓ1(x1), ℓ2(x2)}.
+        The grid consists of 21^6 points. The x and y dimensions
+        range from −1.0 to 4.0, while the remaining dimensions range from −2.0 to 2.0.</h5></p> 
+        <img src="resrc/exp-2-result.png" alt="expriment2.png" class="text-center" style="width: 45%; max-width: 2000px">
+        <img src="resrc/exp-2-table-1.png" alt="expriment2.png" class="text-center" style="width: 43%; max-width: 2000px">
+        <p>
+        The left figure demonstrates the local updating results for
+        the backward computation of 0.02 seconds with ∆ = 0.04,
+        0.06 seconds with ∆ = 0.1212 and 0.1 seconds with ∆ =
+        0.204. The dimensions shown are x and y. We take a slice
+        of vx = −1, vy = −1, θ = 0, and ω = 0.4.
+        </p>
+      </div>
+
+      <h4 style="padding-top:0.5em">BibTeX</h4>
+      If you find this work useful for your research, please cite:
+      <div class="card">
+        <div class="card-block">
+          <pre class="card-text clickselect">
+              @article{he2025threshold,
+                title={Threshold Strategy for Leaking Corner-Free Hamilton-Jacobi Reachability with Decomposed Computations},
+                author={He, Chong and Mariappan, Mugilan and Vora, Keval and Chen, Mo},
+                journal={arXiv preprint arXiv:2505.10020},
+                year={2025}
+              }
+          </pre>
+        </div>
+      </div>
+
+</div>      
+
+
+
+
+
+
+
+
+</body>
+</html>

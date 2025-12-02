@@ -10,7 +10,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #e1f2ef;
+    /* background-color: #e1f2ef; */
     color: #292857;
 
 }
@@ -202,6 +202,14 @@ a{
   overflow: hidden;
   color: #51576F;
   width :100%;
+}
+
+.label-info {
+  background-color: #1CD1A0;
+}
+
+.label-info[href]:hover {
+  background-color: hotpink;
 }
 
 @media screen and (max-width: 768px) {
