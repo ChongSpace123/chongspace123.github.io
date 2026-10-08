@@ -279,7 +279,7 @@ a{
 
 .project-pill-caption {
   display: block;
-  margin-left: 1.6em;
+  margin-left: 0.4em;
   font-size: 0.85rem;
   color: #7A7C80;
 }
@@ -308,8 +308,8 @@ a{
   color: #fff;
 }
 
-/* Research section: "Current focus" tag, hook line, subheadings, axis cards */
-.focus-tag {
+/* Research section: title tags, hook line, subheadings, axis cards */
+.title-tag {
   display: inline-block;
   margin-left: 0.6em;
   padding: 0.1em 0.6em;
@@ -372,6 +372,46 @@ a{
   font-size: 0.9rem;
   font-style: italic;
   color: #7A7C80;
+}
+
+/* Research section: sub-projects, side-by-side figures, citations, tech tags */
+.work-block {
+  margin: 1.2rem 0 1.6rem;
+  padding: 0.2rem 0 0.6rem 1rem;
+  border-left: 3px solid #D5F5EC;
+}
+
+.figure-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.6rem 0 0.2rem;
+}
+
+.figure-row img {
+  min-width: 0;
+  width: 100%;
+}
+
+.section-2 p.paper-cite {
+  font-size: 0.95rem;
+  color: #51576F;
+}
+
+.tech-tags {
+  display: block;
+  margin-top: 0.3em;
+}
+
+.tech-tag {
+  display: inline-block;
+  margin: 0 0.4em 0.3em 0;
+  padding: 0.1em 0.65em;
+  border-radius: 4px;
+  background-color: #EEF1F4;
+  color: #51576F;
+  font-size: 0.8rem;
 }
 
 /* Style the collapsible content. Note: hidden by default */

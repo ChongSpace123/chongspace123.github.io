@@ -125,7 +125,7 @@
                 
 
                 <h2 id="research">Research</h2>
-                <g class="collapsible">I. Predicting Humans in the Wild: Generalizable &amp; Socially-Aware Prediction <span class="focus-tag">Current focus</span></g>
+                <g class="collapsible">I. Predicting Humans in the Wild: Generalizable &amp; Socially-Aware Prediction <span class="title-tag">Current focus</span></g>
                 <div class="content">
                     <p class="research-hook">
                     How can a robot predict where people will walk &mdash; in places it has never seen, while understanding how people react to each other?
@@ -170,49 +170,72 @@
                     <span class="pub-badges"><a class="pub-badge" href="#publication"><i class="fas fa-file-alt" aria-hidden="true"></i> T-RO paper (under review)</a></span>
                 </div>
 
-                <g class="collapsible">II. Leaking Corner Issue</g>
+                <g class="collapsible">II. Scalable Safety Guarantees: Fixing the Leaking Corner in HJ Reachability <span class="title-tag">L-CSS 2023 &middot; CDC 2025</span></g>
                 <div class="content">
-                <!-- </div> -->
+                    <p class="research-hook">
+                    How can we compute safety guarantees for high-dimensional robots &mdash; fast, and without giving up correctness?
+                    </p>
+                    <p>
+                    Hamilton-Jacobi (HJ) reachability computes the set of states from which a robot can reach a goal or avoid failure, together with the optimal control policy. It comes with strong guarantees, but its cost grows exponentially with the state dimension (the "curse of dimensionality").
+                    Decomposing a system into self-contained subsystems makes the computation tractable, but it can produce wrong results &mdash; errors that appear at the corners of the decomposed sets, which we call the <strong>leaking corner issue</strong>. My work identifies why this happens and how to fix it.
+                    </p>
 
-                <!-- <g class="collapsible">Hamilton-Jacobi Reachability Decomposition with Admissible Control</g> -->
-                <!-- <div class="content"> -->
-                    <p>
-                    1. Admissible Control: 
-                    </br>
-                    Hamilton-Jacobi reachability analysis is a useful tool for generating reachable sets and corresponding optimal control policies, but its use in high-dimensional systems is hindered by the "curse of dimensionality." Self-contained subsystem decomposition is a proposed solution, but it can produce conservative or incorrect results due to the "leaking corner issue." This issue arises from the inexact decomposition of the target set and inconsistencies across the computed control policies for each coupled subsystem.</br>
-                    In this work, we define and resolve this issue by introducing the notion of an admissible control set that enforces consistent control actions across the coupled subsystems. Our method efficiently computes exact reachable sets and the corresponding optimal control policy for self-contained subsystems with a decomposable goal (or failure) set. We also provide conservative under-approximations for goal (or failure) sets with inexact decomposition. In this conservative case, a local update method in the full dimensional space can be applied to recover exact results. 
-                    </p>
-                    <img src="./img/HJwACS/exactInexact.png" width=50%> 
-                    <img src="./img/HJwACS/ReachSureUnsure.png" width=43%> 
-                    <p>
-                    [2] <strong>Chong He*</strong>, Zheng Gong*, Mo Chen, Sylvia Herbert, <a href="https://ieeexplore.ieee.org/document/10365682" target="_blank" style="color: #292857">"Efficient and Guaranteed Hamilton-Jacobi Reachability via Self-Contained Subsystem Decomposition and Admissible Control Sets"</a>, IEEE Control Systems Letter, 2023
-                    </p>
-                    <p> This project is coded in Matlab, and the code can be found at <a href="https://github.com/ChongChongbst/Admissible-Control-Reconstruction" target="_blank" style="color: #292857">Admissible-Control-Reconstruction</a> .</p>
-                    <p>
-                    2. <a class="project-pill" href="./projects/threshold-strategy/index.html" title="Go to the Threshold Strategy project page">Threshold Strategy <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                    <span class="project-pill-caption">Click to view the project page</span></p>
-                    By calling the issue ``leaking corner issue'', we mean that it is observed that the incorrectness happens at the corner. </br>
-                    In this work, we have the theoretical proof that it only exists in the corner. </br>
-                    Besides, a local updating procedure is proposed to recover the exact reachable set, which guarantees fast computation and correct result. </br>
-                    </p>
-                    <img src="./img/threshold/proof.png" width=42%> 
-                    <img src="./img/threshold/localprocess.png" width=57%> 
-                    <p>
-                    [1] <strong>Chong He</strong>, Mugilan Mariappan, Keval Vora, Mo Chen <a href="https://arxiv.org/pdf/2505.10020" target="_blank" style="color: #292857">"Threshold Strategy for Leaking Corner-Free Hamilton-Jacobi Reachability with Decomposed Computations"</a>, IEEE Conference on Decision and Control, 2025
-                    </p>
-                
+                    <div class="work-block">
+                        <h4 class="research-subhead">1. Admissible Control Sets</h4>
+                        <p>
+                        - <strong>Cause:</strong> the leaking corner comes from inexact decomposition of the target set and inconsistent control policies across the coupled subsystems.<br>
+                        - <strong>Fix:</strong> an <i>admissible control set</i> enforces consistent control actions across subsystems, giving exact reachable sets and optimal policies for decomposable targets.<br>
+                        - <strong>Beyond exact decomposition:</strong> conservative under-approximations for inexactly decomposed targets, which a local update in the full-dimensional space can refine to the exact result.
+                        </p>
+                        <div class="figure-row">
+                            <img src="./img/HJwACS/exactInexact.png" alt="Exact versus inexact decomposition of a target set" style="flex: 50;">
+                            <img src="./img/HJwACS/ReachSureUnsure.png" alt="Reachable sets computed with admissible control compared with the true reachable set" style="flex: 43;">
+                        </div>
+                        <p class="figure-caption">Left: exact vs. inexact decomposition of the target set. Right: the backward reachable set from admissible control matches the true one, while plain subsystem decomposition does not.</p>
+                        <p class="paper-cite"><strong>Chong He*</strong>, Zheng Gong*, Mo Chen, Sylvia Herbert, "Efficient and Guaranteed Hamilton-Jacobi Reachability via Self-Contained Subsystem Decomposition and Admissible Control Sets", IEEE Control Systems Letters, 2023</p>
+                        <span class="pub-badges"><a class="pub-badge" href="https://ieeexplore.ieee.org/document/10365682" target="_blank" rel="noopener noreferrer"><i class="fas fa-book" aria-hidden="true"></i> IEEE</a><a class="pub-badge" href="https://github.com/ChongChongbst/Admissible-Control-Reconstruction" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a></span>
+                        <span class="tech-tags"><span class="tech-tag">Matlab</span><span class="tech-tag">Optimal Control</span></span>
+                    </div>
+
+                    <div class="work-block">
+                        <h4 class="research-subhead">2. Threshold Strategy</h4>
+                        <p>
+                        - <strong>Theory:</strong> a proof that the leaking corner issue occurs <i>only</i> at the corners of the decomposed sets.<br>
+                        - <strong>Algorithm:</strong> a local updating procedure that repairs just those corners, recovering the exact reachable set while keeping the speed of decomposed computation.
+                        </p>
+                        <div class="figure-row">
+                            <img src="./img/threshold/proof.png" alt="Illustration of the proof that leaking only happens at the corner" style="flex: 42;">
+                            <img src="./img/threshold/localprocess.png" alt="Local updating process for the leaking corner" style="flex: 57;">
+                        </div>
+                        <p class="figure-caption">Left: why leaking can only happen at the corner. Right: the local updating process that recovers the exact reachable set.</p>
+                        <p class="paper-cite"><strong>Chong He</strong>, Mugilan Mariappan, Keval Vora, Mo Chen, "Threshold Strategy for Leaking Corner-Free Hamilton-Jacobi Reachability with Decomposed Computations", IEEE Conference on Decision and Control, 2025</p>
+                        <p>
+                        <a class="project-pill" href="./projects/threshold-strategy/index.html" title="Go to the Threshold Strategy project page">Threshold Strategy <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <span class="project-pill-caption">Click to view the project page</span>
+                        </p>
+                        <span class="pub-badges"><a class="pub-badge" href="https://arxiv.org/abs/2505.10020" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt" aria-hidden="true"></i> arXiv</a></span>
+                        <span class="tech-tags"><span class="tech-tag">Reachability</span><span class="tech-tag">Parallel Computation</span></span>
+                    </div>
                 </div>
 
-                <g class="collapsible">III. 3D Catheter Reconstruction from Image Sequence</g>
+                <g class="collapsible">III. 3D Catheter Reconstruction from Image Sequences <span class="title-tag">UCSD ARCLab &middot; 2022</span></g>
                 <div class="content" style="display: none;">
-                    <p>
-                    How to find the actual 3D shape of a catheter with a low-resolution endoscopic camera?</br>
-                    In this project, a machine-learning based method is used.
-                    The shape of the catheter is assumed as a Bezier Curve </br>with 3 control points.
-                    With the image sequence, the 3D shape information can be optimized to the true value.
+                    <p class="research-hook">
+                    How can we recover the true 3D shape of a catheter from a low-resolution endoscopic camera?
                     </p>
-                    <img src="./img/imagesequence.gif" width=95%> 
-                    <p> This project is coded with pytorch, and the code can be found at <a href="https://github.com/ChongChongbst/ARCLab-CatheterControl/tree/main" target="_blank" style="color: #292857">CatheterControl</a> .</p>       
+                    <p>
+                    Flexible catheters bend inside the body, and knowing their 3D shape is key to controlling them precisely. Instead of extra sensors, this project recovers the shape from the camera images alone, using a learning-based optimization.
+                    </p>
+                    <h4 class="research-subhead">My work</h4>
+                    <p>
+                    - <strong>Shape model:</strong> represented the catheter as a Bezier curve with 3 control points.<br>
+                    - <strong>Learning from images:</strong> built a loss function over the image sequence and used gradient descent in PyTorch to learn the control points, optimizing the reconstructed 3D shape toward the true one.<br>
+                    - <strong>Kinematics:</strong> derived the forward and inverse kinematics of a 4-actuator, constant-curvature catheter.
+                    </p>
+                    <img src="./img/imagesequence.gif" alt="Reconstructed catheter shape converging over the image sequence" width=95%>
+                    <p class="figure-caption">The reconstructed catheter shape is optimized frame by frame over the image sequence.</p>
+                    <span class="pub-badges"><a class="pub-badge" href="https://github.com/ChongChongbst/ARCLab-CatheterControl/tree/main" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a></span>
+                    <span class="tech-tags"><span class="tech-tag">PyTorch</span><span class="tech-tag">Computer Vision</span><span class="tech-tag">Medical Robotics</span></span>
                 </div>
 <!-- 
                 <g class="collapsible">A Multi-Contact-Aided Continuum Manipulator</g>
@@ -226,17 +249,28 @@
                     </p>
                 </div> -->
 
-                <g class="collapsible">IV. Teleoperation for Catheter Control</g>
+                <g class="collapsible">IV. Teleoperation for Catheter Control <span class="title-tag">Medical Robotics</span></g>
                 <div class="content" style="display: none;">
-                    <p>The multi-shape advantage of continuum manipulator is crucial in minimum invasive surgery.</p>
-                    <p>In hope for easier usage when implementing surgeries, this project is initiated. </p>
-                    <p> In the following, it shows the mapping relationship between the haptic device and the motors. These motors are aimed for driving the cables which are the director of the manipulator's shape.</p>
-                    <img src="./img/teleoperation/pipeline.png" width=50%>
-                    <video width=45% class="center" controls muted>
-                        <source src="./img/teleoperation/video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                    </video>
-                    <p> This project is coded with ROS using C++ language</p>
+                    <p class="research-hook">
+                    How can a surgeon steer a flexible, cable-driven catheter as naturally as moving their own hand?
+                    </p>
+                    <p>
+                    Continuum manipulators can bend into many shapes, which makes them valuable for minimally invasive surgery &mdash; but that flexibility also makes them hard to control by hand. This project builds a teleoperation system so the catheter can be driven intuitively with a haptic device.
+                    </p>
+                    <h4 class="research-subhead">My work</h4>
+                    <p>
+                    - <strong>Motion mapping:</strong> mapped the haptic device's motion to the motors that pull the driving cables, which set the manipulator's shape.<br>
+                    - <strong>System:</strong> implemented the full teleoperation pipeline in ROS using C++.
+                    </p>
+                    <div class="figure-row">
+                        <img src="./img/teleoperation/pipeline.png" alt="Teleoperation pipeline from haptic device to cable-driving motors" style="flex: 50;">
+                        <video style="flex: 45; min-width: 0; width: 100%;" controls muted>
+                            <source src="./img/teleoperation/video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p class="figure-caption">Left: mapping from the haptic device to the cable-driving motors. Right: the catheter under teleoperation.</p>
+                    <span class="tech-tags"><span class="tech-tag">ROS</span><span class="tech-tag">C++</span><span class="tech-tag">Haptics</span></span>
                 </div>
 
                 <h2 id="awards">Awards</h2>
