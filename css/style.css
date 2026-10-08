@@ -308,6 +308,72 @@ a{
   color: #fff;
 }
 
+/* Research section: "Current focus" tag, hook line, subheadings, axis cards */
+.focus-tag {
+  display: inline-block;
+  margin-left: 0.6em;
+  padding: 0.1em 0.6em;
+  border-radius: 999px;
+  background-color: #fff;
+  color: #17B088;
+  font-size: 0.75rem;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.section-2 p.research-hook {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #114345;
+  border-left: 4px solid #1CD1A0;
+  padding: 0.2em 0 0.2em 0.8em;
+  margin-bottom: 1rem;
+}
+
+.research-subhead {
+  color: #114345;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1.4rem 0 0.4rem;
+}
+
+.axis-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.5rem 0 1.2rem;
+}
+
+.axis-card {
+  flex: 1 1 200px;
+  padding: 0.9rem 1rem;
+  border-top: 4px solid #1CD1A0;
+  border-radius: 6px;
+  background-color: #F4FBF9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #51576F;
+}
+
+.axis-card-title {
+  margin-bottom: 0.4em;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #114345;
+}
+
+.axis-card-title i {
+  margin-right: 0.3em;
+  color: #1CD1A0;
+}
+
+.section-2 p.figure-caption {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #7A7C80;
+}
+
 /* Style the collapsible content. Note: hidden by default */
 .content {
   padding: 5px;

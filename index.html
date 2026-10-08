@@ -14,7 +14,7 @@
         <div class="container">
             <div class="section-1">
                 <img class="profile-photo" src="./img/ChongHe.jpeg" alt="Chong He"/>
-                <h2>何翀 (Chong He)</h2>
+                <h2>Chong He (何翀)</h2>
                 <p class="tagline">PhD Student @ SFU<br>Machine Learning &amp; AI<br>Robotics &middot; Reachability<br>Human Prediction</p>
                 <a href="https://www.linkedin.com/in/chong-he-172a0519a/?isSelfProfile=true" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/ChongChongbst" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
@@ -125,24 +125,49 @@
                 
 
                 <h2 id="research">Research</h2>
-                <g class="collapsible">I. Generalizable and Socially-Aware Human Prediction</g>
+                <g class="collapsible">I. Predicting Humans in the Wild: Generalizable &amp; Socially-Aware Prediction <span class="focus-tag">Current focus</span></g>
                 <div class="content">
-                    <p>
-                    Predicting where people will move next is foundational to safe, human-aware autonomous systems, from self-driving vehicles yielding to pedestrians to mobile robots navigating crowded corridors.
-                    Two challenges largely determine whether a prediction method can be deployed in the real world: whether it <strong>generalizes</strong> beyond the scenes it was trained on, and whether it is <strong>socially aware</strong>, correctly representing how people influence one another. These two are seldom considered jointly.
+                    <p class="research-hook">
+                    How can a robot predict where people will walk &mdash; in places it has never seen, while understanding how people react to each other?
                     </p>
                     <p>
-                    In my PhD depth report, <i>"Toward Generalizable and Socially-Aware Human Prediction: A Survey"</i>, I review the human trajectory prediction literature along three axes:
-                    </br>
-                    1. <strong>Generalizability</strong>: the leave-one-out (LOO) evaluation policy, online model-update methods that adapt after deployment, and Inverse Reinforcement Learning (IRL), which recovers reward functions that transfer to novel scenes.
-                    </br>
-                    2. <strong>Social Awareness</strong>: physics-based models (Social Force, RVO), game-theoretic formulations, social pooling, attention-based methods (graph attention and transformers), and social-interaction-annotated datasets such as TrajNet++ and JRDB-Social.
-                    </br>
-                    3. <strong>Evaluation Metrics</strong>: displacement-based metrics (ADE/FDE, minADE/minFDE) versus probabilistic and calibration-oriented metrics (NLL, cross-entropy, reliability) that better reflect real-world usefulness but are rarely reported.
+                    Safe, human-aware robots depend on anticipating human motion: a mobile robot weaving through a crowded corridor, or a vehicle yielding to a pedestrian about to step off the curb.
+                    Two properties largely decide whether a prediction method works outside the lab: whether it <strong>generalizes</strong> to new scenes, and whether it is <strong>socially aware</strong>, capturing how people influence one another. Yet they are rarely studied together.
                     </p>
+
+                    <h4 class="research-subhead">My work</h4>
                     <p>
-                    Key finding: no existing method uses IRL to recover the rewards behind different types of human social interaction. Combined with the recent interaction-annotated datasets, this is a promising direction toward human prediction that is both generalizable and socially aware.
+                    - <strong>Intention as utility:</strong> confidence-based prediction of human intentions for social robot navigation (IEEE T-RO, under review).<br>
+                    - <strong>Real-world deployment:</strong> at <a href="https://marobotai.com/" target="_blank" rel="noopener noreferrer">MaRobot AI</a>, I built a probabilistic human-prediction framework with online intention inference, deployed on ROS2 and parallelized with JAX.<br>
+                    - <strong>Patent:</strong> <i>Methods and Systems for Predicting One or More Future States of an Entity</i> (PCT application, pending).
                     </p>
+
+                    <h4 class="research-subhead">The landscape: a survey along three axes</h4>
+                    <p>In my PhD depth report, <i>Toward Generalizable and Socially-Aware Human Prediction: A Survey</i>, I map the field along three axes:</p>
+                    <div class="axis-cards">
+                        <div class="axis-card">
+                            <div class="axis-card-title"><i class="fas fa-globe-americas" aria-hidden="true"></i> Generalizability</div>
+                            Does the model transfer to unseen scenes? Leave-one-out evaluation, online adaptation after deployment, and Inverse Reinforcement Learning (IRL).
+                        </div>
+                        <div class="axis-card">
+                            <div class="axis-card-title"><i class="fas fa-users" aria-hidden="true"></i> Social Awareness</div>
+                            How do agents influence each other? Physics rules, game theory, social pooling, attention &mdash; and interaction-annotated datasets.
+                        </div>
+                        <div class="axis-card">
+                            <div class="axis-card-title"><i class="fas fa-ruler-combined" aria-hidden="true"></i> Evaluation</div>
+                            Are we measuring the right thing? Displacement errors (ADE/FDE) versus calibration metrics that reflect real-world reliability.
+                        </div>
+                    </div>
+                    <img src="./img/human-prediction/survey-map.png" alt="Map of surveyed human prediction methods by generalizability mechanism and social awareness mechanism" width=95%>
+                    <p class="figure-caption">
+                    Every surveyed method placed by how it generalizes (x-axis) and how it models social interaction (y-axis). The top-right corner is empty: no method uses IRL to recover the rewards behind human social interaction.
+                    </p>
+
+                    <h4 class="research-subhead">What's next</h4>
+                    <p>
+                    That empty corner is where I'm heading: learning the reward functions behind different types of social interaction with IRL, using recent interaction-annotated datasets such as JRDB-Social and TrajNet++ &mdash; toward human prediction that is both generalizable and socially aware.
+                    </p>
+                    <span class="pub-badges"><a class="pub-badge" href="#publication"><i class="fas fa-file-alt" aria-hidden="true"></i> T-RO paper (under review)</a></span>
                 </div>
 
                 <g class="collapsible">II. Leaking Corner Issue</g>
