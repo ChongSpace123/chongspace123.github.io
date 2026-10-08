@@ -30,9 +30,10 @@ a{
     padding-left: 16vh;
     text-align: left;
     width: 100%; 
+    /* Keep the photo and menu in view while the right column scrolls */
     position: sticky;
-
-
+    top: 0;
+    align-self: start;
 }
 
 .section-1 p{
@@ -191,6 +192,26 @@ a{
   width: 100%;
   font-size: 1.3rem;
   color: #fff;
+}
+
+/* Vertical dots below a collapsed title to hint that it can be expanded.
+   Positioned outside the title bar so they don't get its background color. */
+.collapsible.collapsed {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+.collapsible.collapsed::after {
+  content: "\22EE";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #51576F;
 }
 
 /* Style the collapsible content. Note: hidden by default */

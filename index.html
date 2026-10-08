@@ -15,7 +15,7 @@
                 <img src="./img/ChongHe.jpeg" width="200"/></i>
                 <h2>何翀 (Chong He)</h2>
                 <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/%E7%BF%80-%E4%BD%95-172a0519a/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/chong-he-172a0519a/?isSelfProfile=true" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/ChongChongbst" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
 
                 <div id="sidebar" class="section-3">
@@ -120,7 +120,27 @@
                 
 
                 <h2 id="research">Research</h2>
-                <g class="collapsible">Leaking Corner Issue</g>
+                <g class="collapsible">I. Generalizable and Socially-Aware Human Prediction</g>
+                <div class="content">
+                    <p>
+                    Predicting where people will move next is foundational to safe, human-aware autonomous systems, from self-driving vehicles yielding to pedestrians to mobile robots navigating crowded corridors.
+                    Two challenges largely determine whether a prediction method can be deployed in the real world: whether it <strong>generalizes</strong> beyond the scenes it was trained on, and whether it is <strong>socially aware</strong>, correctly representing how people influence one another. These two are seldom considered jointly.
+                    </p>
+                    <p>
+                    In my PhD depth report, <i>"Toward Generalizable and Socially-Aware Human Prediction: A Survey"</i>, I review the human trajectory prediction literature along three axes:
+                    </br>
+                    1. <strong>Generalizability</strong>: the leave-one-out (LOO) evaluation policy, online model-update methods that adapt after deployment, and Inverse Reinforcement Learning (IRL), which recovers reward functions that transfer to novel scenes.
+                    </br>
+                    2. <strong>Social Awareness</strong>: physics-based models (Social Force, RVO), game-theoretic formulations, social pooling, attention-based methods (graph attention and transformers), and social-interaction-annotated datasets such as TrajNet++ and JRDB-Social.
+                    </br>
+                    3. <strong>Evaluation Metrics</strong>: displacement-based metrics (ADE/FDE, minADE/minFDE) versus probabilistic and calibration-oriented metrics (NLL, cross-entropy, reliability) that better reflect real-world usefulness but are rarely reported.
+                    </p>
+                    <p>
+                    Key finding: no existing method uses IRL to recover the rewards behind different types of human social interaction. Combined with the recent interaction-annotated datasets, this is a promising direction toward human prediction that is both generalizable and socially aware.
+                    </p>
+                </div>
+
+                <g class="collapsible">II. Leaking Corner Issue</g>
                 <div class="content">
                 <!-- </div> -->
 
@@ -139,7 +159,7 @@
                     </p>
                     <p> This projected is coded in Matlab, and the code can be found at <a href="https://github.com/ChongChongbst/Admissible-Control-Reconstruction" target="_blank" style="color: #292857">Admissible-Control-Reconstruction</a> .</p>
                     <p>
-                    2. <a class="label label-info" href="./projects/threshold-strategy/index.html" target="_blank" rel="noopener noreferrer" style="color: #292857"> Threshold Strategy (Check out the project website)</a>:</p>
+                    2. <a class="label label-info" href="./projects/threshold-strategy/index.html" target="_blank" rel="noopener noreferrer" style="color: #292857"> Threshold Strategy (Click to view the project details)</a>:</p>
                     By calling the issue ``leaking corner issue'', we mean that it is observed that the incorrectness happens at the corner. </br>
                     In this work, we have the theoretical proof that it only exists in the corner. </br>
                     Besides, a local updating procedure is proposed to recover the exact reachable set, which guarantees fast computation and correct result. </br>
@@ -152,8 +172,8 @@
                 
                 </div>
 
-                <g class="collapsible">3D Catheter Reconstruction from Image Sequence</g>
-                <div class="content">
+                <g class="collapsible">III. 3D Catheter Reconstruction from Image Sequence</g>
+                <div class="content" style="display: none;">
                     <p>
                     How to find the actual 3D shape of a catheter with a low-resolution endoscopic camera?</br>
                     In this project, a machine-learning based method is used.
@@ -175,8 +195,8 @@
                     </p>
                 </div> -->
 
-                <g class="collapsible">Teleoperation for Catheter Control</g>
-                <div class="content">
+                <g class="collapsible">IV. Teleoperation for Catheter Control</g>
+                <div class="content" style="display: none;">
                     <p>The multi-shape advantage of continuum manipulator is crucial in minimum invasive surgery.</p>
                     <p>In hope for easier usage when implementing surgeries, this project is initiated. </p>
                     <p> In the following, it shows the mapping relationship between the haptic device and the motors. These motors are aimed for driving the cables which are the director of the manipulator's shape.</p>
@@ -220,6 +240,8 @@ var coll = document.getElementsByClassName("collapsible");
 var i;
 
 for (i = 0; i < coll.length; i++) {
+  // Mark titles whose content starts hidden so they show the expand hint
+  coll[i].classList.toggle("collapsed", coll[i].nextElementSibling.style.display === "none");
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
@@ -228,6 +250,7 @@ for (i = 0; i < coll.length; i++) {
         } else {
   content.style.display = "block";
             }
+    this.classList.toggle("collapsed", content.style.display === "none");
   });
 }
 </script>
