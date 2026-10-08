@@ -223,17 +223,52 @@
 
 
 <script>
-// Place the target section 20% from the top of the view when a Quick Links item is clicked
-document.querySelectorAll('#sidebar a[href^="#"]').forEach(function(link) {
+// Quick Links: clicking scrolls a section to 30% from the top of the view, and the
+// item whose click position matches the current scroll position is highlighted
+var menuLinks = Array.prototype.slice.call(document.querySelectorAll('#sidebar a[href^="#"]'));
+var clickedLink = null;
+
+function linkTarget(link) {
+  return document.getElementById(decodeURIComponent(link.getAttribute("href").slice(1)));
+}
+
+// Scroll position a link's click lands on (sections near the bottom stop at the page end)
+function landingScrollY(target) {
+  var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  var y = window.scrollY + target.getBoundingClientRect().top - window.innerHeight * 0.3;
+  return Math.max(0, Math.min(y, maxScroll));
+}
+
+menuLinks.forEach(function(link) {
   link.addEventListener("click", function(e) {
-    var target = document.getElementById(decodeURIComponent(this.getAttribute("href").slice(1)));
+    var target = linkTarget(this);
     if (!target) return;
     e.preventDefault();
-    target.style.scrollMarginTop = "20vh";
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    clickedLink = this;
+    window.scrollTo({ top: landingScrollY(target), behavior: "smooth" });
     history.replaceState(null, "", this.getAttribute("href"));
   });
 });
+
+function highlightCurrentSection() {
+  var current = null;
+  menuLinks.forEach(function(link) {
+    var target = linkTarget(link);
+    if (target && landingScrollY(target) <= window.scrollY + 2) current = link;
+  });
+  // Sections near the bottom can share a landing position; prefer the one that was clicked
+  var clicked = clickedLink && linkTarget(clickedLink);
+  if (clicked && Math.abs(landingScrollY(clicked) - window.scrollY) <= 2) current = clickedLink;
+  menuLinks.forEach(function(link) { link.classList.toggle("current", link === current); });
+}
+
+// Manual scrolling ends the preference for the last clicked item
+["wheel", "touchstart", "keydown"].forEach(function(type) {
+  window.addEventListener(type, function() { clickedLink = null; }, { passive: true });
+});
+window.addEventListener("scroll", highlightCurrentSection, { passive: true });
+window.addEventListener("resize", highlightCurrentSection);
+highlightCurrentSection();
 </script>
 <script>
 var coll = document.getElementsByClassName("collapsible");

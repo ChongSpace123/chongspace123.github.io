@@ -74,9 +74,7 @@ a{
     color: #7A7C80;
     padding-top: 10vh;
     padding-left: 20vh;
-    height: 50%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-x: clip; /* clip without making the column its own scroll box */
     max-width: 80%;
 }
 
@@ -170,6 +168,12 @@ a{
 }
 .section-3 a:active {
   color: #1CD1A0;
+}
+
+/* Quick Links item for the section currently in view */
+.section-3 a.current {
+    color: #fff;
+    background-color: #1CD1A0;
 }
 
 
