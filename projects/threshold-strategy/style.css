@@ -24,6 +24,12 @@ a:hover {
   text-decoration: none;
 }
 
+/* Author name that links back to the personal website */
+.homepage-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
