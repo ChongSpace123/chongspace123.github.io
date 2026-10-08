@@ -24,8 +24,11 @@
                     <a href="#about">About</a><br>
                     <a href="#skills">Skills</a><br>
                     <a href="#publication">Publications</a><br>
+                    <a href="#patents">Patents</a><br>
+                    <a href="#internship">Internship Experiences</a><br>
                     <a href="#ta experience">TA Experiences</a><br>
                     <a href="#research">Research</a><br>
+                    <a href="#awards">Awards</a><br>
                     <a href="#contact">Contact</a><br>
         
                 </div>
@@ -34,18 +37,22 @@
             <div class="section-2">
                 <h2 id="about">About</h2>
                 <p>
-                I am a Phd student specialized in Computing Science at Simon Fraser University. <br>
+                I am a Phd student specialized in Computing Science at Simon Fraser University, advised by Dr. Mo Chen. <br>
                 Check out our lab website: <a href="https://sfumars.com/" target="_blank">Mars Lab.</a> <br>
                 I obtained my master degree at University of California, San Diego with a major of Mechanical and Aerospace Engineering in <a href="http://sylviaherbert.com/" target="_blank">The Safe Autonomous Systems Lab</a> .<br>
+                From 2025 to 2026, I worked as a research intern at <a href="https://marobotai.com/" target="_blank" rel="noopener noreferrer">MaRobot AI</a> in Vancouver on probabilistic human prediction with online intention inference.<br>
                 Previously, I worked as a research assistant in <a href="https://imr.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">the Institute of Medical Robotics</a> at Shanghai Jiaotong University.<br>
                 I received my B.Eng degree at Tongji University, China majoring in mechanical design, manufacturing and its automation.<br>
-                My Research Interest lies in Reachability, Control Theory and Medical Robots.
+                I was also an exchange student at University of California, Berkeley in 2019.<br>
+                My Research Interest lies in Reachability, Control Theory, Medical Robots, and Generalizable, Socially-aware Human Prediction for Robot Navigation.
                 </p>
 
 
                 <h2 id="skills">Skills</h2>
-                <p>Matlab, Python, C/C++, and Java.<br>
+                <p>Matlab, Python, C/C++, Java, and LaTeX.<br>
+                Packages &amp; tools: Jax, HeteroCL, PyTorch, TensorFlow, NumPy, OpenCV, ROS/ROS2, Blender, Gazebo, and CoppeliaSim.<br>
                 Familliar with mechanical design tools such as AutoCAD and SolidWorks.<br>
+                Languages: English and Mandarin.<br>
                 Love skiing and playing video games at leisure time.
                 </p>
 
@@ -70,6 +77,33 @@
                 </p>
                 <p>
                 - Xiaojie Ai, Anzhu Gao, Member, IEEE, Zecai Lin, <strong style="color: #000000;">Chong He,</strong> Weidong Chen, Member, IEEE <a href="https://ieeexplore.ieee.org/document/9385942" target="_blank" style="color: #292857">“A Multi-Contact-Aided Continuum Manipulator With Anisotropic Shapes”</a>, IEEE Robotics and Automation Letters, July 2021
+                </p>
+
+                <h2 id="patents">Patents</h2>
+                <p>
+                - <strong style="color: #000000;">Chong He</strong>, Mo Chen, Jacob Daniel Bayless, Michael Samuel Lu, Nhat Minh Bui, <i>"Methods and Systems for Predicting One or More Future States of an Entity"</i>, PCT International Patent Application, filed Feb 2026 (pending)
+                </p>
+                <p>
+                - <strong style="color: #000000;">Chong He</strong>, <i>"An Intelligent Shopping Cart"</i>, utility model patent, State Intellectual Property Office
+                </p>
+
+                <h2 id="internship">Internship Experiences</h2>
+                <p>
+                <a href="https://marobotai.com/" target="_blank" rel="noopener noreferrer" style="color: #292857"><strong>MaRobot AI</strong></a> (Vancouver, British Columbia, Canada) &mdash; Research Intern, 04/2025 - 03/2026<br>
+                - Developed a probabilistic framework for human prediction with online intention inference<br>
+                - Implemented the framework in real-world scenarios with ROS2 using Python<br>
+                - Parallelized code with Jax
+                </p>
+                <p>
+                <strong style="color: #000000;">Shanghai Jiaotong University &ndash; Institute of Medical Robotics</strong> &mdash; Research Assistant, 06/2020 - 02/2021<br>
+                - Examined the kinematics of continuum manipulators with visual data<br>
+                - Constructed experimental platforms for several projects<br>
+                - Worked with the Robot Operating System (ROS) using C++
+                </p>
+                <p>
+                <strong style="color: #000000;">Eaton Cooper Electronic Technologies (Shanghai) Co., Ltd.</strong> &mdash; Engineering Support Intern, Mech&amp;DCC, 08/2019 - 02/2020<br>
+                - Designed 3D and 2D drawings of circuit protection products and inductors with SolidWorks<br>
+                - Gained experience with the manufacturing process and usage of electronic parts
                 </p>
 
                 <h2 id="ta experience">Teaching Assitant Experiences</h2>
@@ -154,6 +188,11 @@
                     <p> This projected is coded with ROS using C++ language</p>
                 </div>
 
+                <h2 id="awards">Awards</h2>
+                <p>
+                - <strong style="color: #000000;">Best Design Award</strong>, "Harting Cup" Undergraduate Science and Technology Innovation Competition, Tongji University, 2018
+                </p>
+
                 <h2 id="contact">Contact</h2>
                 <a href = "mailto: chong_he@sfu.ca" style="color:#292857; padding-bottom:100px;">E-mail: chong_he@sfu.ca</a>
             
@@ -163,6 +202,19 @@
 
 
 
+<script>
+// Place the target section 20% from the top of the view when a Quick Links item is clicked
+document.querySelectorAll('#sidebar a[href^="#"]').forEach(function(link) {
+  link.addEventListener("click", function(e) {
+    var target = document.getElementById(decodeURIComponent(this.getAttribute("href").slice(1)));
+    if (!target) return;
+    e.preventDefault();
+    target.style.scrollMarginTop = "20vh";
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", this.getAttribute("href"));
+  });
+});
+</script>
 <script>
 var coll = document.getElementsByClassName("collapsible");
 var i;
