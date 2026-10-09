@@ -125,24 +125,25 @@
                 
 
                 <h2 id="research">Research</h2>
-                <g class="collapsible">I. Human Trajectory Prediction in Crowded Environments <span class="title-tag">SFU &middot; 2025&ndash;present</span></g>
+                <g class="collapsible">I. Human Trajectory Prediction in Human-Populated Environments <span class="title-tag">SFU &middot; 2025&ndash;present</span></g>
                 <div class="content">
                     <p class="research-hook">
-                    How can a robot predict where people will walk in crowded, human-centered spaces &mdash; while understanding how people react to each other?
+                    How can a robot predict where people will walk in crowded, human-populated spaces &mdash; while understanding how people react to each other?
                     </p>
                     <p>
-                    Self-driving cars and service robots operate in human-centered environments: busy streets, campuses, shopping malls, hospitals, and offices, surrounded by people.
+                    Self-driving cars and service robots operate in human-populated environments: busy streets, campuses, shopping malls, hospitals, and offices, surrounded by people.
                     Working safely there depends on anticipating human motion: a vehicle yielding to a pedestrian about to step off the curb, or a service robot weaving through a crowded corridor.
                     Two properties largely decide whether a trajectory prediction method works in these real crowds: whether it <strong>generalizes</strong> to new scenes, and whether it is <strong>socially aware</strong>, capturing how people influence one another. Yet they are rarely studied together.
                     </p>
 
                     <h4 class="research-subhead">My work</h4>
                     <p>
-                    - <strong>Intention as utility:</strong> confidence-based prediction of human intentions for social robot navigation (IEEE T-RO, under review).<br>
                     - <strong>Real-world deployment:</strong> at <a href="https://marobotai.com/" target="_blank" rel="noopener noreferrer">MaRobot AI</a>, I built a probabilistic human-prediction framework with online intention inference, deployed on ROS2 and parallelized with JAX.<br>
-                    - <strong>Patent:</strong> <i>Methods and Systems for Predicting One or More Future States of an Entity</i> (PCT application, pending).
+                    - <strong>Intention as utility:</strong> confidence-based prediction of human intentions for social robot navigation <a class="pub-badge" style="margin-left: 0.3em;" href="#publication"><i class="fas fa-file-alt" aria-hidden="true"></i> T-RO paper (under review)</a><br>
+                    - <strong>Patent:</strong> <i>Methods and Systems for Predicting One or More Future States of an Entity</i> <a class="pub-badge" style="margin-left: 0.3em;" href="#patents"><i class="fas fa-certificate" aria-hidden="true"></i> PCT patent (pending)</a>
                     </p>
 
+                    <!-- Survey content: hidden until the depth report is on arXiv
                     <h4 class="research-subhead">The landscape: a survey along three axes</h4>
                     <p>In my PhD depth report, <i>Toward Generalizable and Socially-Aware Human Prediction: A Survey</i>, I map the field along three axes:</p>
                     <div class="axis-cards">
@@ -163,12 +164,12 @@
                     <p class="figure-caption">
                     Every surveyed method placed by how it generalizes (x-axis) and how it models social interaction (y-axis). The top-right corner is empty: no method uses IRL to recover the rewards behind human social interaction.
                     </p>
+                    -->
 
                     <h4 class="research-subhead">What's next</h4>
                     <p>
-                    That empty corner is where I'm heading: learning the reward functions behind different types of social interaction with IRL, using recent interaction-annotated datasets such as JRDB-Social and TrajNet++ &mdash; toward human trajectory prediction that is both generalizable and socially aware.
+                    I aim to build human trajectory prediction that is both generalizable and socially aware &mdash; reliable enough for self-driving cars and service robots to work safely among people.
                     </p>
-                    <span class="pub-badges"><a class="pub-badge" href="#publication"><i class="fas fa-file-alt" aria-hidden="true"></i> T-RO paper (under review)</a></span>
                 </div>
 
                 <g class="collapsible">II. Scalable Safety Guarantees: Fixing the Leaking Corner in HJ Reachability <span class="title-tag">UCSD &amp; SFU &middot; 2022&ndash;2025</span></g>
@@ -301,12 +302,15 @@ function landingScrollY(target) {
   return Math.max(0, Math.min(y, maxScroll));
 }
 
-menuLinks.forEach(function(link) {
+// Every in-page link (menu items and links in the content) lands its target 30% from the top
+document.querySelectorAll('a[href^="#"]').forEach(function(link) {
   link.addEventListener("click", function(e) {
     var target = linkTarget(this);
     if (!target) return;
     e.preventDefault();
-    clickedLink = this;
+    var href = this.getAttribute("href");
+    // Highlight the menu item for the destination, if there is one
+    clickedLink = menuLinks.filter(function(m) { return m.getAttribute("href") === href; })[0] || null;
     window.scrollTo({ top: landingScrollY(target), behavior: "smooth" });
     history.replaceState(null, "", this.getAttribute("href"));
   });
