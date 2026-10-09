@@ -286,6 +286,26 @@
 
 
 <script>
+// Switch to the stacked (one-column) layout on small screens, or whenever the
+// photo, name, or Quick Links in the left column would cover the content
+function updateLayout() {
+  var body = document.body;
+  body.classList.remove("stacked");
+  var stacked = window.innerWidth <= 768;
+  if (!stacked) {
+    var content = document.querySelector(".section-2");
+    var contentLeft = content.getBoundingClientRect().left + parseFloat(getComputedStyle(content).paddingLeft);
+    var leftColumnRight = 0;
+    document.querySelectorAll(".profile-photo, .section-1 h2, .tagline, #sidebar a").forEach(function(el) {
+      leftColumnRight = Math.max(leftColumnRight, el.getBoundingClientRect().right);
+    });
+    stacked = leftColumnRight + 16 > contentLeft;  // keep at least a 16px gap
+  }
+  body.classList.toggle("stacked", stacked);
+}
+updateLayout();
+window.addEventListener("resize", updateLayout);
+
 // Quick Links: clicking scrolls a section to 30% from the top of the view, and the
 // item whose click position matches the current scroll position is highlighted
 var menuLinks = Array.prototype.slice.call(document.querySelectorAll('#sidebar a[href^="#"]'));
