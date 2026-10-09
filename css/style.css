@@ -439,3 +439,103 @@ a{
         grid-template-columns: 1fr; /* Stacked on top of each other on mobile */
     }
 }
+
+/* ---------- Phone and small-tablet layout ---------- */
+@media (max-width: 768px) {
+  /* One column: profile on top, content below */
+  .container {
+    display: block;
+  }
+
+  .section-1 {
+    position: static;
+    width: auto;
+    padding: 2rem 1rem 0.5rem;
+    text-align: center;
+  }
+
+  .profile-photo {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Quick Links become a bar pinned to the top that scrolls sideways */
+  .section-3 {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: auto;
+    height: auto;
+    margin: 0.8rem -1rem 0;
+    padding: 0.5rem 0.75rem;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .section-3::-webkit-scrollbar {
+    display: none;
+  }
+
+  .section-3 h2,
+  .section-3 br {
+    display: none;
+  }
+
+  .section-3 a {
+    font-size: 0.95rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+
+  .section-2 {
+    max-width: none;
+    padding: 1rem 1rem 3rem;
+  }
+
+  .section-2 h2 {
+    font-size: 1.45rem;
+  }
+
+  .section-2 p,
+  .section-2 a {
+    font-size: 1rem;
+  }
+
+  .section-2 p.research-hook {
+    font-size: 1.1rem;
+  }
+
+  /* Collapsible project titles: comfortable to tap, no size jump on hover */
+  .section-2 g,
+  .section-2 g:hover,
+  .active,
+  .collapsible:hover {
+    box-sizing: border-box;
+    font-size: 1.05rem;
+    padding: 10px;
+  }
+
+  .content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .work-block {
+    padding-left: 0.7rem;
+  }
+
+  /* Stack side-by-side figures, and keep every image and video inside the screen */
+  .figure-row {
+    flex-direction: column;
+  }
+
+  .section-2 img,
+  .section-2 video {
+    width: 100% !important;
+    height: auto;
+  }
+}
